@@ -1,0 +1,157 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education AI Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-lg font-bold">EduRevolution</div>
+            <div class="space-x-4">
+                <a href="#" class="hover:underline">Home</a>
+                <a href="#" class="hover:underline">Solutions</a>
+                <a href="#" class="hover:underline">Risk Calculator</a>
+                <a href="#" class="hover:underline">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-700 text-white text-center py-16">
+        <h1 class="text-3xl font-bold">Empowering Students Through AI & Technology</h1>
+        <p class="mt-4">Reducing dropout rates with innovative digital solutions</p>
+        <button class="mt-6 bg-yellow-500 text-blue-800 px-6 py-2 rounded-full font-semibold">Explore Solutions</button>
+    </section>
+
+    <!-- Key Initiatives -->
+    <section class="container mx-auto py-16">
+        <h2 class="text-center text-2xl font-bold mb-8">Our Key Initiatives</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-search text-3xl text-blue-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">AI-Driven Early Warning System</h3>
+                <p class="mb-4">Predict dropout rates using AI and real-time alerts.</p>
+                <a href="ai.html" class="bg-blue-700 text-white px-4 py-2 rounded-full text-center block">Learn More</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-dollar-sign text-3xl text-blue-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Financial Support Management</h3>
+                <p class="mb-4">Manage scholarships and financial aid applications.</p>
+                <a href="finance.html" class="bg-blue-700 text-white px-4 py-2 rounded-full text-center block">View Support</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-hands-helping text-3xl text-blue-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Student Support & Engagement</h3>
+                <p class="mb-4">Counseling and getting more resources for students.</p>
+                <a href="studentsuo.html" class="bg-blue-700 text-white px-4 py-2 rounded-full text-center block">Get Support</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-globe text-3xl text-blue-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Community Learning Hub</h3>
+                <p class="mb-4">Digital resources for shared learning with all students.</p>
+                <a href="hub.html" class="bg-blue-700 text-white px-4 py-2 rounded-full text-center block">Explore Hub</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-users text-3xl text-blue-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Parental Engagement Portal</h3>
+                <p class="mb-4">Track progress, communicate with teachers, and access resources.</p>
+                <a href="parental.html" class="bg-blue-700 text-white px-4 py-2 rounded-full text-center block">Visit Portal</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-mobile-alt text-3xl text-blue-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Mobile Learning App</h3>
+                <p class="mb-4">Personalized lessons, quizzes, and real-time scores.</p>
+                <a href="app.html" class="bg-blue-700 text-white px-4 py-2 rounded-full text-center block">Download App</a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center cursor-pointer" onclick="openRiskCalculator()">
+                <i class="fas fa-calculator text-3xl text-blue-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Risk Calculator</h3>
+                <p class="mb-4">Assess the risk of student dropout.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-dollar-sign text-3xl text-blue-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Flexible Schooling Management System</h3>
+                <p class="mb-4">Empowering Students with Flexible Learning Options</p>
+                <a href="schoolingmag.html" class="bg-blue-700 text-white px-4 py-2 rounded-full text-center block">View Support</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Risk Calculator Modal -->
+    <div id="risk-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-md w-11/12 md:w-1/3">
+            <h2 class="text-center text-2xl font-bold mb-4">Calculate Student Dropout Risk</h2>
+            <div class="mb-4">
+                <label for="student-name" class="block mb-2">Student Name:</label>
+                <input type="text" id="student-name" class="w-full p-2 border border-gray-300 rounded" oninput="calculateAndDisplayRisk()">
+            </div>
+            <div class="mb-4">
+                <label for="attendance" class="block mb-2">Attendance (0-100):</label>
+                <input type="number" id="attendance" min="0" max="100" class="w-full p-2 border border-gray-300 rounded" oninput="calculateAndDisplayRisk()">
+            </div>
+            <div class="mb-4">
+                <label for="grades" class="block mb-2">Grades (0-100):</label>
+                <input type ="number" id="grades" min="0" max="100" class="w-full p-2 border border-gray-300 rounded" oninput="calculateAndDisplayRisk()">
+            </div>
+            <div class="mb-4">
+                <label for="behavior_score" class="block mb-2">Behavior Score (0-30):</label>
+                <input type="number" id="behavior_score" min="0" max="30" class="w-full p-2 border border-gray-300 rounded" oninput="calculateAndDisplayRisk()">
+            </div>
+            <h3 class="text-lg font-semibold">Risk Level:</h3>
+            <p id="risk-output" class="text-xl font-bold"></p>
+            <button class="mt-4 bg-blue-700 text-white px-4 py-2 rounded-full" onclick="closeRiskCalculator()">Close</button>
+        </div>
+    </div>
+    
+    <!-- Join Us Section -->
+    <section class="bg-gray-300 py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-8">Join Us in Transforming Education</h2>
+            <form class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full md:w-1/3 p-2 rounded border border-gray-300">
+                <input type="email" placeholder="Your Email" class="w-full md:w-1/3 p-2 rounded border border-gray-300">
+                <textarea placeholder="Your Message" class="w-full md:w-1/3 p-2 rounded border border-gray-300"></textarea>
+                <button class="bg-blue-700 text-white px-6 py-2 rounded-full">Get Involved</button>
+            </form>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2023 EduRevolution. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateRisk(attendance, grades, behavior_score) {
+            return (100 - attendance) + (50 - grades) + (30 - behavior_score);
+        }
+
+        function calculateAndDisplayRisk() {
+            const name = document.getElementById('student-name').value;
+            const attendance = parseInt(document.getElementById('attendance').value) || 0;
+            const grades = parseInt(document.getElementById('grades').value) || 0;
+            const behavior_score = parseInt(document.getElementById('behavior_score').value) || 0;
+
+            const risk_level = calculateRisk(attendance, grades, behavior_score);
+            const riskOutput = document.getElementById('risk-output');
+
+            if (name && attendance >= 0 && grades >= 0 && behavior_score >= 0) {
+                riskOutput.textContent = `${name} (Risk Level: ${risk_level})`;
+            } else {
+                riskOutput.textContent = '';
+            }
+        }
+
+        function openRiskCalculator() {
+            document.getElementById('risk-modal').classList.remove('hidden');
+        }
+
+        function closeRiskCalculator() {
+            document.getElementById('risk-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
